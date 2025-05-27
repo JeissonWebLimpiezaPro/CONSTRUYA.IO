@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Construya - Remodelaciones Profesionales</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <!-- INICIO -->
+  <section class="pagina activa" id="pantallaInicio">
+    <h1>Bienvenido a <span>Construya</span></h1>
+    <p class="intro-text">
+      Conectamos a propietarios con técnicos certificados para transformar sus espacios. 
+      Ya sea que necesites un servicio o quieras ofrecer tus habilidades, 
+      Construya es tu plataforma de confianza.
+    </p>
+    <div class="imagen-portada">
+      <img src="./img/fondo_comentarios.webp" alt="Construcción en progreso" />
+    </div>
+    <p class="pregunta-ingreso">¿Cómo quieres participar?</p>
+    <div class="opciones-ingreso">
+      <button onclick="seleccionarTipoUsuario('cliente')">
+        <i class="fas fa-user"></i> 
+        <span>Necesito un servicio</span>
+        <small>Encuentra técnicos certificados</small>
+      </button>
+      <button onclick="seleccionarTipoUsuario('tecnico')">
+        <i class="fas fa-hard-hat"></i>
+        <span>Ofrezco servicios</span>
+        <small>Únete a nuestra red de profesionales</small>
+      </button>
+    </div>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
+      <img src="./img/logo ConstruYA .bak.png" alt="Logo Construya" />
+      <p>La plataforma que conecta propietarios con los mejores técnicos del país.  
+         Servicios confiables, rápidos y a tu medida.</p>
+    </footer>
+  </section>
+
+  <!-- LOGIN CLIENTE -->
+  <section class="pagina" id="loginCliente">
+    <div class="auth-container">
+      <div class="auth-info">
+        <img src="./img/imagen acerca 1.png" alt="Login Cliente">
+        <h2>Bienvenido Cliente</h2>
+        <p>Accede a tu cuenta para solicitar servicios y gestionar tus proyectos.</p>
+      </div>
+      <div class="auth-form">
+        <h2>Iniciar Sesión</h2>
+        <form id="formLoginCliente">
+          <input type="email" placeholder="Correo electrónico" required>
+          <input type="password" placeholder="Contraseña" required>
+          <button type="submit">Ingresar</button>
+          <button type="button" class="btn-retroceder" onclick="cambiarPagina('pantallaInicio')">
+            <i class="fas fa-arrow-left"></i> Volver
+          </button>
+          <p class="auth-links">
+            <a href="#" onclick="cambiarPagina('registroCliente')">¿No tienes cuenta? Regístrate</a>
+            <a href="#">¿Olvidaste tu contraseña?</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- LOGIN TÉCNICO -->
+  <section class="pagina" id="loginTecnico">
+    <div class="auth-container">
+      <div class="auth-info">
+        <img src="./img/imagen acerca 1.png" alt="Login Técnico">
+        <h2>Bienvenido Técnico</h2>
+        <p>Accede a tu cuenta para gestionar tus servicios y proyectos.</p>
+      </div>
+      <div class="auth-form">
+        <h2>Iniciar Sesión</h2>
+        <form id="formLoginTecnico">
+          <input type="email" placeholder="Correo electrónico" required>
+          <input type="password" placeholder="Contraseña" required>
+          <button type="submit">Ingresar</button>
+          <button type="button" class="btn-retroceder" onclick="cambiarPagina('pantallaInicio')">
+            <i class="fas fa-arrow-left"></i> Volver
+          </button>
+          <p class="auth-links">
+            <a href="#" onclick="cambiarPagina('registroTecnico')">¿No tienes cuenta? Regístrate</a>
+            <a href="#">¿Olvidaste tu contraseña?</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- REGISTRO CLIENTE -->
+  <section class="pagina" id="registroCliente">
+    <div class="registro-container">
+      <div class="registro-info">
+        <img src="./img/imagen acerca 1.png" alt="Registro cliente">
+        <h2>¿Por qué registrarte como cliente?</h2>
+        <p>Accede a los mejores técnicos certificados del país en minutos.  
+        Vive una experiencia de servicio ágil, profesional y segura.</p>
+        <p>Confía tu remodelación a expertos. Construya es calidad garantizada.</p>
+      </div>
+      <div class="registro-form">
+        <h2>Regístrate como Cliente</h2>
+        <form id="formRegistroCliente">
+          <input type="text" placeholder="Nombre completo" required>
+          <input type="email" placeholder="Correo electrónico" required>
+          <input type="tel" placeholder="Teléfono" required>
+          <input type="text" placeholder="Ciudad" required>
+          <input type="password" placeholder="Contraseña" required>
+          <button type="submit">Registrarse</button>
+          <button type="button" class="btn-retroceder" onclick="cambiarPagina('pantallaInicio')">
+            <i class="fas fa-arrow-left"></i> Volver
+          </button>
+        </form>
+        <p class="mensaje-exito oculto" id="mensajeExitoCliente">🎉 Registro exitoso. Redirigiendo a solicitud de servicio...</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- REGISTRO TÉCNICO -->
+  <section class="pagina" id="registroTecnico">
+    <div class="registro-container">
+      <div class="registro-info">
+        <img src="./img/imagen acerca 1.png" alt="Registro técnico">
+        <h2>¿Por qué registrarte como técnico?</h2>
+        <p>Únete a nuestra red de profesionales y accede a nuevos proyectos.  
+        Gestiona tu agenda, clientes y pagos de manera sencilla.</p>
+        <p>Construya te ofrece las mejores oportunidades laborales.</p>
+      </div>
+      <div class="registro-form">
+        <h2>Regístrate como Técnico</h2>
+        <form id="formRegistroTecnico">
+          <input type="text" placeholder="Nombre completo" required>
+          <input type="email" placeholder="Correo electrónico" required>
+          <input type="tel" placeholder="Teléfono" required>
+          <input type="text" placeholder="Ciudad" required>
+          <input type="text" placeholder="Especialidad" required>
+          <input type="text" placeholder="Años de experiencia" required>
+          <input type="password" placeholder="Contraseña" required>
+          <button type="submit">Registrarse</button>
+          <button type="button" class="btn-retroceder" onclick="cambiarPagina('pantallaInicio')">
+            <i class="fas fa-arrow-left"></i> Volver
+          </button>
+        </form>
+        <p class="mensaje-exito oculto" id="mensajeExitoTecnico">🎉 Registro exitoso. Redirigiendo a tu panel...</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SERVICIO -->
+  <section class="pagina" id="solicitudServicio">
+    <!-- Menú de navegación del panel -->
+    <nav class="panel-nav" role="navigation" aria-label="Menú principal">
+      <div class="nav-logo">
+        <img src="./img/logo ConstruYA .bak.png" alt="Logo Construya" />
+      </div>
+      
+      <!-- Botón hamburguesa para móvil -->
+      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-container">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Menú de navegación -->
+      <div class="nav-container" id="nav-container">
+        <div class="nav-links">
+          <a href="#" class="nav-link activo" onclick="mostrarSeccion('nueva-solicitud')" aria-current="page">
+            <i class="fas fa-plus-circle"></i>
+            <span>Nueva Solicitud</span>
+          </a>
+          <a href="#" class="nav-link" onclick="mostrarSeccion('historial')">
+            <i class="fas fa-history"></i>
+            <span>Historial</span>
+          </a>
+          <a href="#" class="nav-link" onclick="mostrarSeccion('blog')">
+            <i class="fas fa-blog"></i>
+            <span>Blog</span>
+          </a>
+          <a href="#" class="nav-link" onclick="mostrarSeccion('noticias')">
+            <i class="fas fa-newspaper"></i>
+            <span>Noticias</span>
+          </a>
+          <a href="#" class="nav-link" onclick="mostrarSeccion('faq')">
+            <i class="fas fa-question-circle"></i>
+            <span>FAQ</span>
+          </a>
+          <a href="#" class="nav-link" onclick="mostrarSeccion('testimonios')">
+            <i class="fas fa-comments"></i>
+            <span>Testimonios</span>
+          </a>
+          <a href="#" class="nav-link" onclick="mostrarSeccion('contacto')">
+            <i class="fas fa-envelope"></i>
+            <span>Contacto</span>
+          </a>
+          <a href="#" class="nav-link" onclick="mostrarSeccion('perfil')">
+            <i class="fas fa-user"></i>
+            <span>Mi Perfil</span>
+          </a>
+        </div>
+        <div class="nav-user">
+          <span class="user-name">Bienvenido, <span id="userName">Usuario</span></span>
+          <button class="logout-btn" onclick="logout()" aria-label="Cerrar sesión">
+            <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="panel-contenido">
+      <!-- Sección de Nueva Solicitud -->
+      <div class="seccion activa" id="nueva-solicitud">
+        <div class="servicio-contenedor">
+          <div class="servicio-texto">
+            <p>Selecciona el tipo de servicio que deseas y cuéntanos tu necesidad.  
+            Nuestro equipo lo tomará de inmediato.</p>
+            <form class="form_Servicio" id="formServicio">
+              <div class="categorias-servicio">
+                <div class="categoria-item">
+                  <input type="radio" name="categoria" id="remodelacion" value="remodelacion" required>
+                  <label for="remodelacion">
+                    <i class="fas fa-hammer"></i>
+                    <span>Remodelación</span>
+                  </label>
+                </div>
+                <div class="categoria-item">
+                  <input type="radio" name="categoria" id="electricidad" value="electricidad">
+                  <label for="electricidad">
+                    <i class="fas fa-bolt"></i>
+                    <span>Electricidad</span>
+                  </label>
+                </div>
+                <div class="categoria-item">
+                  <input type="radio" name="categoria" id="pintura" value="pintura">
+                  <label for="pintura">
+                    <i class="fas fa-paint-roller"></i>
+                    <span>Pintura</span>
+                  </label>
+                </div>
+                <div class="categoria-item">
+                  <input type="radio" name="categoria" id="plomeria" value="plomeria">
+                  <label for="plomeria">
+                    <i class="fas fa-faucet"></i>
+                    <span>Plomería</span>
+                  </label>
+                </div>
+                <div class="categoria-item">
+                  <input type="radio" name="categoria" id="limpieza" value="limpieza">
+                  <label for="limpieza">
+                    <i class="fas fa-broom"></i>
+                    <span>Limpieza General</span>
+                  </label>
+                </div>
+                <div class="categoria-item">
+                  <input type="radio" name="categoria" id="carpinteria" value="carpinteria">
+                  <label for="carpinteria">
+                    <i class="fas fa-tools"></i>
+                    <span>Carpintería</span>
+                  </label>
+                </div>
+                <div class="categoria-item">
+                  <input type="radio" name="categoria" id="ventaneria" value="ventaneria">
+                  <label for="ventaneria">
+                    <i class="fas fa-window-maximize"></i>
+                    <span>Ventanería</span>
+                  </label>
+                </div>
+              </div>
+
+              <select id="servicioEspecifico" required>
+                <option value="">Selecciona un tipo de servicio específico</option>
+              </select>
+
+              <div class="form-group">
+                <label>Ubicación del servicio:</label>
+                <input type="text" placeholder="Dirección exacta" required>
+              </div>
+
+              <div class="form-group">
+                <label>Fecha preferida:</label>
+                <input type="date" required>
+              </div>
+
+              <textarea placeholder="Describe tus requerimientos adicionales..."></textarea>
+
+              <div class="form-group">
+                <label>Imagen del lugar o problema:</label>
+                <div class="archivo-input">
+                  <input type="file" accept="image/*" required>
+                  <textarea placeholder="Describe lo que muestra la imagen..." class="archivo-descripcion"></textarea>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Video explicativo (opcional):</label>
+                <div class="archivo-input">
+                  <input type="file" accept="video/*">
+                  <textarea placeholder="Describe el contenido del video..." class="archivo-descripcion"></textarea>
+                </div>
+              </div>
+
+              <button type="submit">Solicitar servicio</button>
+            </form>
+            <!-- Mensaje de confirmación -->
+            <div class="mensaje-confirmacion oculto" id="mensajeConfirmacion">
+              <div class="mensaje-contenido">
+                <i class="fas fa-check-circle"></i>
+                <h3>¡Solicitud Enviada!</h3>
+                <p>Tu solicitud ha sido recibida correctamente. Un técnico certificado se pondrá en contacto contigo pronto.</p>
+                <div class="detalles-solicitud">
+                  <p><strong>Número de solicitud:</strong> <span id="numeroSolicitud">12345</span></p>
+                  <p><strong>Estado:</strong> <span class="estado-pendiente">Pendiente de revisión</span></p>
+                </div>
+                <button class="btn-secundario" onclick="volverAlPanel()">Volver al panel</button>
+              </div>
+            </div>
+          </div>
+          <div class="servicio-imagen">
+            <img src="./img/icono carrusel3d 7.png" alt="Servicios técnicos" />
+            <div class="servicio-info">
+              <h3>¿Por qué elegirnos?</h3>
+              <ul>
+                <li><i class="fas fa-check"></i> Técnicos certificados</li>
+                <li><i class="fas fa-check"></i> Garantía en todos los trabajos</li>
+                <li><i class="fas fa-check"></i> Precios competitivos</li>
+                <li><i class="fas fa-check"></i> Atención personalizada</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección de Historial -->
+      <div class="seccion" id="historial">
+        <div class="historial-container">
+          <div class="historial-info">
+            <h3>Historial de Solicitudes</h3>
+            <p>Aquí podrás ver el estado de todas tus solicitudes y calificar los servicios completados.</p>
+            <div class="historial-filtros">
+              <select id="filtroHistorial" onchange="filtrarHistorial()">
+                <option value="todos">Todos los servicios</option>
+                <option value="completados">Servicios completados</option>
+                <option value="pendientes">Servicios pendientes</option>
+              </select>
+              <button class="btn-ordenar" onclick="ordenarHistorial()">
+                <i class="fas fa-sort"></i> Ordenar por fecha
+              </button>
+            </div>
+          </div>
+          <div class="historial-lista">
+            <!-- Ejemplo de solicitud completada con calificación -->
+            <div class="solicitud-item completada" data-id="12344">
+              <div class="solicitud-header">
+                <span class="solicitud-numero">#12344</span>
+                <span class="solicitud-estado completada">Completada</span>
+              </div>
+              <div class="solicitud-detalles">
+                <h4>Instalación Eléctrica</h4>
+                <p><i class="fas fa-calendar"></i> Fecha: 10/03/2024</p>
+                <p><i class="fas fa-map-marker-alt"></i> Ubicación: Av. Central #456</p>
+                <p><i class="fas fa-user"></i> Técnico: Juan Pérez</p>
+                <div class="calificacion-existente">
+                  <div class="estrellas">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <p class="comentario-calificacion">Excelente trabajo, muy profesional y puntual.</p>
+                </div>
+              </div>
+              <div class="solicitud-acciones">
+                <button class="btn-detalles" onclick="mostrarDetallesSolicitud('12344')">
+                  <i class="fas fa-eye"></i> Ver detalles
+                </button>
+                <button class="btn-editar-calificacion" onclick="editarCalificacion('12344')">
+                  <i class="fas fa-edit"></i> Editar calificación
+                </button>
+              </div>
+            </div>
+
+            <!-- Ejemplo de solicitud pendiente -->
+            <div class="solicitud-item" data-id="12345">
+              <div class="solicitud-header">
+                <span class="solicitud-numero">#12345</span>
+                <span class="solicitud-estado pendiente">Pendiente</span>
+              </div>
+              <div class="solicitud-detalles">
+                <h4>Remodelación de Baño</h4>
+                <p><i class="fas fa-calendar"></i> Fecha: 15/03/2024</p>
+                <p><i class="fas fa-map-marker-alt"></i> Ubicación: Calle Principal #123</p>
+                <p><i class="fas fa-user"></i> Técnico asignado: Pendiente</p>
+              </div>
+              <div class="solicitud-acciones">
+                <button class="btn-detalles" onclick="mostrarDetallesSolicitud('12345')">
+                  <i class="fas fa-eye"></i> Ver detalles
+                </button>
+                <button class="btn-cancelar" onclick="cancelarSolicitud('12345')">
+                  <i class="fas fa-times"></i> Cancelar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección de Perfil -->
+      <div class="seccion" id="perfil">
+        <div class="perfil-container">
+          <div class="perfil-header">
+            <div class="perfil-imagen-container">
+              <img src="./img/imagen acerca 1.png" alt="Avatar" class="perfil-imagen" />
+              <button class="cambiar-imagen" onclick="mostrarModalImagen()">
+                <i class="fas fa-camera"></i>
+              </button>
+            </div>
+            <div class="perfil-info">
+              <h2 class="perfil-nombre">Usuario Ejemplo</h2>
+              <p class="perfil-email">
+                <i class="fas fa-envelope"></i>
+                usuario@ejemplo.com
+              </p>
+              <div class="perfil-estadisticas">
+                <div class="estadistica-item">
+                  <div class="estadistica-valor">15</div>
+                  <div class="estadistica-label">Servicios Completados</div>
+                </div>
+                <div class="estadistica-item">
+                  <div class="estadistica-valor">4.8</div>
+                  <div class="estadistica-label">Calificación Promedio</div>
+                </div>
+                <div class="estadistica-item">
+                  <div class="estadistica-valor">3</div>
+                  <div class="estadistica-label">Servicios Activos</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <form class="form-perfil" id="formPerfil">
+            <div class="form-group">
+              <label>Nombre completo</label>
+              <input type="text" name="nombre" value="Usuario Ejemplo" required>
+            </div>
+            <div class="form-group">
+              <label>Correo electrónico</label>
+              <input type="email" name="email" value="usuario@ejemplo.com" required>
+            </div>
+            <div class="form-group">
+              <label>Teléfono</label>
+              <input type="tel" name="telefono" value="123-456-7890" required>
+            </div>
+            <div class="form-group">
+              <label>Ciudad</label>
+              <input type="text" name="ciudad" value="Ciudad Ejemplo" required>
+            </div>
+            <div class="form-acciones">
+              <button type="submit" class="btn-guardar">
+                <i class="fas fa-save"></i> Guardar cambios
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Modal para cambiar imagen de perfil -->
+      <div class="modal-imagen" id="modalImagen">
+        <div class="modal-imagen-contenido">
+          <div class="modal-header">
+            <h3>Cambiar foto de perfil</h3>
+            <button class="btn-cerrar" onclick="cerrarModalImagen()">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="vista-previa">
+            <img id="vistaPreviaImagen" src="./img/imagen acerca 1.png" alt="Vista previa" />
+          </div>
+          <form id="formImagenPerfil" onsubmit="guardarImagenPerfil(event)">
+            <div class="form-group">
+              <label for="imagenPerfil" class="btn-seleccionar">
+                <i class="fas fa-upload"></i> Seleccionar imagen
+              </label>
+              <input type="file" id="imagenPerfil" accept="image/*" onchange="previsualizarImagen(event)" required>
+            </div>
+            <div class="modal-acciones">
+              <button type="submit" class="btn-guardar">
+                <i class="fas fa-save"></i> Guardar imagen
+              </button>
+              <button type="button" class="btn-cancelar" onclick="cerrarModalImagen()">
+                Cancelar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Sección de Blog -->
+      <div class="seccion" id="blog">
+        <div class="contenedor">
+          <h2 class="titulo-seccion">Blog</h2>
+          <p class="descripcion-seccion">Mantente informado con nuestros artículos y consejos</p>
+          <div class="blog-lista">
+            <!-- Los artículos se cargarán dinámicamente -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección de FAQ -->
+      <div class="seccion" id="faq">
+        <div class="contenedor">
+          <h2 class="titulo-seccion">Preguntas Frecuentes</h2>
+          <p class="descripcion-seccion">Resuelve tus dudas sobre nuestros servicios</p>
+          <div class="faq-lista">
+            <!-- Las preguntas se cargarán dinámicamente -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección de Testimonios -->
+      <div class="seccion" id="testimonios">
+        <div class="contenedor">
+          <h2 class="titulo-seccion">Testimonios</h2>
+          <p class="descripcion-seccion">Lo que nuestros clientes dicen sobre nosotros</p>
+          
+          <!-- Plugin de comentarios de Facebook -->
+          <div class="facebook-comments">
+            <div id="fb-root"></div>
+            <div class="fb-comments" 
+                 data-href="https://tudominio.com/testimonios" 
+                 data-width="100%" 
+                 data-numposts="5"
+                 data-order-by="reverse_time">
+            </div>
+          </div>
+
+          <div class="testimonios-grid">
+            <div class="testimonio-card">
+              <div class="testimonio-header">
+                <img src="./img/imagen acerca 1.png" alt="Cliente" class="testimonio-avatar">
+                <div class="testimonio-info">
+                  <h3>María González</h3>
+                  <div class="testimonio-estrellas">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonio-texto">"Excelente servicio. El técnico fue muy profesional y resolvió mi problema de plomería rápidamente. Definitivamente los recomiendo."</p>
+              <span class="testimonio-fecha">15 de Marzo, 2024</span>
+            </div>
+
+            <div class="testimonio-card">
+              <div class="testimonio-header">
+                <img src="./img/imagen acerca 1.png" alt="Cliente" class="testimonio-avatar">
+                <div class="testimonio-info">
+                  <h3>Juan Pérez</h3>
+                  <div class="testimonio-estrellas">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonio-texto">"La remodelación de mi cocina quedó perfecta. El equipo fue muy puntual y el trabajo superó mis expectativas."</p>
+              <span class="testimonio-fecha">10 de Marzo, 2024</span>
+            </div>
+
+            <div class="testimonio-card">
+              <div class="testimonio-header">
+                <img src="./img/imagen acerca 1.png" alt="Cliente" class="testimonio-avatar">
+                <div class="testimonio-info">
+                  <h3>Ana Martínez</h3>
+                  <div class="testimonio-estrellas">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonio-texto">"El servicio de electricidad fue impecable. Muy profesionales y con precios justos. Volveré a contratarlos."</p>
+              <span class="testimonio-fecha">5 de Marzo, 2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección de Noticias -->
+      <div class="seccion" id="noticias">
+        <div class="contenedor">
+          <h2 class="titulo-seccion">Noticias y Actualizaciones</h2>
+          <p class="descripcion-seccion">Mantente informado sobre las últimas novedades en construcción y remodelación</p>
+          
+          <div class="noticias-filtros">
+            <button class="filtro-btn activo" data-filtro="todos">Todos</button>
+            <button class="filtro-btn" data-filtro="tendencias">Tendencias</button>
+            <button class="filtro-btn" data-filtro="consejos">Consejos</button>
+            <button class="filtro-btn" data-filtro="eventos">Eventos</button>
+          </div>
+
+          <div class="noticias-grid">
+            <!-- Noticia con Video -->
+            <article class="noticia-card video">
+              <div class="noticia-media">
+                <video controls poster="./img/imagen acerca 1.png">
+                  <source src="ruta-al-video.mp4" type="video/mp4">
+                  Tu navegador no soporta el elemento de video.
+                </video>
+                <span class="noticia-tipo">
+                  <i class="fas fa-video"></i> Video
+                </span>
+              </div>
+              <div class="noticia-contenido">
+                <div class="noticia-categoria">Tendencias</div>
+                <h3>Nuevas Tendencias en Diseño de Interiores 2024</h3>
+                <p>Descubre las últimas tendencias en diseño de interiores que están transformando los espacios residenciales.</p>
+                <div class="noticia-meta">
+                  <span class="noticia-fecha">
+                    <i class="fas fa-calendar"></i> 20 de Marzo, 2024
+                  </span>
+                  <span class="noticia-tiempo">
+                    <i class="fas fa-clock"></i> 5 min lectura
+                  </span>
+                </div>
+                <a href="#" class="btn-leer-mas">Leer más</a>
+              </div>
+            </article>
+
+            <!-- Noticia con Imagen -->
+            <article class="noticia-card imagen">
+              <div class="noticia-media">
+                <img src="./img/imagen acerca 1.png" alt="Técnicas de construcción sostenible">
+                <span class="noticia-tipo">
+                  <i class="fas fa-image"></i> Imagen
+                </span>
+              </div>
+              <div class="noticia-contenido">
+                <div class="noticia-categoria">Consejos</div>
+                <h3>Técnicas de Construcción Sostenible</h3>
+                <p>Aprende sobre las mejores prácticas y materiales eco-amigables para tu próximo proyecto de construcción.</p>
+                <div class="noticia-meta">
+                  <span class="noticia-fecha">
+                    <i class="fas fa-calendar"></i> 18 de Marzo, 2024
+                  </span>
+                  <span class="noticia-tiempo">
+                    <i class="fas fa-clock"></i> 4 min lectura
+                  </span>
+                </div>
+                <a href="#" class="btn-leer-mas">Leer más</a>
+              </div>
+            </article>
+
+            <!-- Noticia con Galería -->
+            <article class="noticia-card galeria">
+              <div class="noticia-media">
+                <div class="galeria-preview">
+                  <img src="./img/imagen acerca 1.png" alt="Feria de construcción">
+                  <div class="galeria-contador">
+                    <i class="fas fa-images"></i> +5 fotos
+                  </div>
+                </div>
+                <span class="noticia-tipo">
+                  <i class="fas fa-images"></i> Galería
+                </span>
+              </div>
+              <div class="noticia-contenido">
+                <div class="noticia-categoria">Eventos</div>
+                <h3>Feria Internacional de Construcción 2024</h3>
+                <p>Un vistazo a los mejores momentos y novedades presentadas en la feria más importante del sector.</p>
+                <div class="noticia-meta">
+                  <span class="noticia-fecha">
+                    <i class="fas fa-calendar"></i> 15 de Marzo, 2024
+                  </span>
+                  <span class="noticia-tiempo">
+                    <i class="fas fa-clock"></i> 3 min lectura
+                  </span>
+                </div>
+                <a href="#" class="btn-leer-mas">Leer más</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="noticias-paginacion">
+            <button class="btn-pagina activo">1</button>
+            <button class="btn-pagina">2</button>
+            <button class="btn-pagina">3</button>
+            <button class="btn-siguiente">
+              Siguiente <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección de Contacto -->
+      <div class="seccion" id="contacto">
+        <div class="contenedor">
+          <h2 class="titulo-seccion">Contáctanos</h2>
+          <p class="descripcion-seccion">Estamos aquí para ayudarte. Envíanos un mensaje y te responderemos lo antes posible.</p>
+
+          <div class="contacto-grid">
+            <!-- Primera fila: Información de contacto y formulario -->
+            <div class="contacto-primera-fila">
+              <!-- Información de Contacto -->
+              <div class="contacto-info">
+                <div class="contacto-card">
+                  <div class="contacto-icono">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <h3>Ubicación</h3>
+                  <p>Barrios Unidos<br>Bogotá, Colombia</p>
+                </div>
+
+                <div class="contacto-card">
+                  <div class="contacto-icono">
+                    <i class="fas fa-phone-alt"></i>
+                  </div>
+                  <h3>Teléfono</h3>
+                  <p>+57 (601) 123-4567<br>+57 (601) 765-4321</p>
+                </div>
+
+                <div class="contacto-card">
+                  <div class="contacto-icono">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <h3>Email</h3>
+                  <p>info@construya.com<br>soporte@construya.com</p>
+                </div>
+
+                <div class="contacto-card">
+                  <div class="contacto-icono">
+                    <i class="fas fa-clock"></i>
+                  </div>
+                  <h3>Horario</h3>
+                  <p>Lunes - Viernes: 8:00 AM - 6:00 PM<br>Sábados: 9:00 AM - 2:00 PM</p>
+                </div>
+
+                <div class="redes-sociales">
+                  <h3>Síguenos</h3>
+                  <div class="redes-iconos">
+                    <a href="#" class="red-social" aria-label="Facebook">
+                      <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="red-social" aria-label="Twitter">
+                      <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="red-social" aria-label="Instagram">
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="red-social" aria-label="LinkedIn">
+                      <i class="fab fa-linkedin-in"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Formulario de Contacto -->
+              <div class="contacto-formulario">
+                <form id="formContacto" class="form-contacto">
+                  <div class="form-grupo">
+                    <label for="nombre">Nombre completo</label>
+                    <div class="input-icono">
+                      <i class="fas fa-user"></i>
+                      <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                  </div>
+
+                  <div class="form-grupo">
+                    <label for="email">Correo electrónico</label>
+                    <div class="input-icono">
+                      <i class="fas fa-envelope"></i>
+                      <input type="email" id="email" name="email" required>
+                    </div>
+                  </div>
+
+                  <div class="form-grupo">
+                    <label for="telefono">Teléfono</label>
+                    <div class="input-icono">
+                      <i class="fas fa-phone"></i>
+                      <input type="tel" id="telefono" name="telefono">
+                    </div>
+                  </div>
+
+                  <div class="form-grupo">
+                    <label for="direccion">Dirección</label>
+                    <div class="input-icono">
+                      <i class="fas fa-map-marker-alt"></i>
+                      <input type="text" id="direccion" name="direccion" required>
+                    </div>
+                  </div>
+
+                  <div class="form-grupo">
+                    <label for="ciudad">Ciudad</label>
+                    <div class="input-icono">
+                      <i class="fas fa-city"></i>
+                      <input type="text" id="ciudad" name="ciudad" required>
+                    </div>
+                  </div>
+
+                  <div class="form-grupo">
+                    <label for="horario">Horario de atención preferido</label>
+                    <div class="input-icono">
+                      <i class="fas fa-clock"></i>
+                      <select id="horario" name="horario" required>
+                        <option value="">Selecciona un horario</option>
+                        <option value="manana">Mañana (8:00 AM - 12:00 PM)</option>
+                        <option value="tarde">Tarde (1:00 PM - 5:00 PM)</option>
+                        <option value="noche">Noche (6:00 PM - 9:00 PM)</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-grupo">
+                    <label for="dias">Días disponibles</label>
+                    <div class="input-icono">
+                      <i class="fas fa-calendar-alt"></i>
+                      <select id="dias" name="dias" required>
+                        <option value="">Selecciona los días</option>
+                        <option value="lunes-viernes">Lunes a Viernes</option>
+                        <option value="sabado">Sábado</option>
+                        <option value="domingo">Domingo</option>
+                        <option value="todos">Todos los días</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-grupo">
+                    <label for="mensaje">Mensaje adicional</label>
+                    <div class="input-icono">
+                      <i class="fas fa-comment-alt"></i>
+                      <textarea id="mensaje" name="mensaje" rows="3"></textarea>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn-enviar">
+                    <i class="fas fa-paper-plane"></i>
+                    Enviar información
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Segunda fila: Mapa -->
+            <div class="contacto-segunda-fila">
+              <div class="mapa-container">
+                <h3>Nuestra Ubicación</h3>
+                <div class="mapa" id="mapa">
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.7547!2d-74.0777!3d4.6426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a2e4c4c4c4c%3A0x4c4c4c4c4c4c4c4c!2sBarrios%20Unidos%2C%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1647043087964!5m2!1ses!2s" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy"
+                    id="mapaGoogle">
+                  </iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Modal de detalles de solicitud -->
+  <div class="modal-detalles oculto" id="modalDetalles">
+    <div class="modal-detalles-contenido">
+      <div class="modal-header">
+        <div class="header-info">
+          <h3>Detalles de la Solicitud</h3>
+          <span class="solicitud-numero">#<span id="detalleNumero"></span></span>
+        </div>
+        <button class="btn-cerrar" onclick="cerrarModalDetalles()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="detalles-principales">
+          <div class="estado-fecha">
+            <div class="estado-container">
+              <span class="estado-label">Estado:</span>
+              <span id="detalleEstado" class="solicitud-estado"></span>
+            </div>
+            <div class="fecha-container">
+              <span class="fecha-label">Fecha:</span>
+              <span id="detalleFecha"></span>
+            </div>
+          </div>
+          
+          <div class="servicio-info">
+            <h4>Tipo de Servicio</h4>
+            <p id="detalleServicio"></p>
+          </div>
+        </div>
+
+        <div class="detalles-secundarios">
+          <div class="detalle-grupo">
+            <h4><i class="fas fa-map-marker-alt"></i> Ubicación</h4>
+            <div class="detalle-contenido">
+              <p><strong>Dirección:</strong> <span id="detalleDireccion"></span></p>
+              <p><strong>Ciudad:</strong> <span id="detalleCiudad"></span></p>
+            </div>
+          </div>
+          
+          <div class="detalle-grupo">
+            <h4><i class="fas fa-clipboard-list"></i> Detalles del Servicio</h4>
+            <div class="detalle-contenido">
+              <p><strong>Descripción:</strong> <span id="detalleDescripcion"></span></p>
+              <p><strong>Requerimientos:</strong> <span id="detalleRequerimientos"></span></p>
+            </div>
+          </div>
+          
+          <div class="detalle-grupo">
+            <h4><i class="fas fa-user-tie"></i> Asignación</h4>
+            <div class="detalle-contenido">
+              <p><strong>Técnico:</strong> <span id="detalleTecnico"></span></p>
+              <p><strong>Fecha estimada:</strong> <span id="detalleFechaEstimada"></span></p>
+            </div>
+          </div>
+
+          <!-- Nueva sección para archivos -->
+          <div class="detalle-grupo">
+            <h4><i class="fas fa-images"></i> Archivos Adjuntos</h4>
+            <div class="detalle-contenido">
+              <div class="archivos-container">
+                <div class="imagenes-container" id="detalleImagenes">
+                  <!-- Las imágenes se cargarán dinámicamente -->
+                </div>
+                <div class="videos-container" id="detalleVideos">
+                  <!-- Los videos se cargarán dinámicamente -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <!-- Los botones se agregarán dinámicamente según el estado de la solicitud -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenedor de notificaciones -->
+  <div id="contenedorNotificaciones"></div>
+
+  <!-- Modal de Confirmación para Cancelar -->
+  <div id="modalConfirmarCancelar" class="modal modal-confirmacion cancelar">
+    <div class="modal-contenido">
+      <div class="modal-header">
+        <h2>Confirmar Cancelación</h2>
+        <button class="modal-cerrar" onclick="cerrarModalConfirmacion('modalConfirmarCancelar')">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-icono">
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <div class="modal-mensaje">
+          ¿Estás seguro de que deseas cancelar esta solicitud? Esta acción no se puede deshacer.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-cancelar-modal" onclick="cerrarModalConfirmacion('modalConfirmarCancelar')">
+          No, mantener
+        </button>
+        <button class="btn-confirmar" onclick="confirmarCancelacion()">
+          Sí, cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Confirmación para Eliminar -->
+  <div id="modalConfirmarEliminar" class="modal modal-confirmacion eliminar">
+    <div class="modal-contenido">
+      <div class="modal-header">
+        <h2>Confirmar Eliminación</h2>
+        <button class="modal-cerrar" onclick="cerrarModalConfirmacion('modalConfirmarEliminar')">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-icono">
+          <i class="fas fa-trash-alt"></i>
+        </div>
+        <div class="modal-mensaje">
+          ¿Estás seguro de que deseas eliminar esta calificación? Esta acción no se puede deshacer.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-cancelar-modal" onclick="cerrarModalConfirmacion('modalConfirmarEliminar')">
+          No, mantener
+        </button>
+        <button class="btn-confirmar" onclick="confirmarEliminacion()">
+          Sí, eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menú inferior móvil -->
+  <nav class="bottom-nav" id="bottomNav">
+    <div class="bottom-nav-links">
+      <a href="#" class="bottom-nav-link activo" onclick="mostrarSeccion('nueva-solicitud')">
+        <i class="fas fa-plus-circle"></i>
+        <span>Nueva</span>
+      </a>
+      <a href="#" class="bottom-nav-link" onclick="mostrarSeccion('historial')">
+        <i class="fas fa-history"></i>
+        <span>Historial</span>
+      </a>
+      <a href="#" class="bottom-nav-link" onclick="mostrarSeccion('blog')">
+        <i class="fas fa-blog"></i>
+        <span>Blog</span>
+      </a>
+      <a href="#" class="bottom-nav-link" onclick="mostrarSeccion('noticias')">
+        <i class="fas fa-newspaper"></i>
+        <span>Noticias</span>
+      </a>
+      <a href="#" class="bottom-nav-link" onclick="mostrarSeccion('faq')">
+        <i class="fas fa-question-circle"></i>
+        <span>FAQ</span>
+      </a>
+      <a href="#" class="bottom-nav-link" onclick="mostrarSeccion('testimonios')">
+        <i class="fas fa-comments"></i>
+        <span>Testimonios</span>
+      </a>
+      <a href="#" class="bottom-nav-link" onclick="mostrarSeccion('contacto')">
+        <i class="fas fa-envelope"></i>
+        <span>Contacto</span>
+      </a>
+      <a href="#" class="bottom-nav-link" onclick="mostrarSeccion('perfil')">
+        <i class="fas fa-user"></i>
+        <span>Perfil</span>
+      </a>
+      <a href="#" class="bottom-nav-link" onclick="logout()">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Salir</span>
+      </a>
+    </div>
+  </nav>
+
+  <script src="logica_app.js"></script>
+
+  <!-- Agregar el SDK de Facebook justo antes del cierre del body -->
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v18.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+</body>
+</html>
