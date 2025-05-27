@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Técnico - Construya</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="panel-nav" role="navigation" aria-label="Menú principal">
+        <div class="nav-logo">
+            <img src="../img/logo ConstruYA .bak.png" alt="Logo Construya" />
+        </div>
+        
+        <!-- Botón hamburguesa para móvil -->
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-container">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Menú de navegación -->
+        <div class="nav-container" id="nav-container">
+            <div class="nav-links">
+                <a href="#" class="nav-link activo" onclick="mostrarSeccion('dashboard')" aria-current="page">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-link" onclick="mostrarSeccion('servicios')">
+                    <i class="fas fa-tools"></i>
+                    <span>Servicios</span>
+                </a>
+                <a href="#" class="nav-link" onclick="mostrarSeccion('calendario')">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Calendario</span>
+                </a>
+                <a href="#" class="nav-link" onclick="mostrarSeccion('mensajes')">
+                    <i class="fas fa-envelope"></i>
+                    <span>Mensajes</span>
+                </a>
+                <a href="#" class="nav-link" onclick="mostrarSeccion('finanzas')">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Finanzas</span>
+                </a>
+                <a href="#" class="nav-link" onclick="mostrarSeccion('perfil')">
+                    <i class="fas fa-user"></i>
+                    <span>Mi Perfil</span>
+                </a>
+            </div>
+            <div class="nav-user">
+                <span class="user-name">Bienvenido, <span id="userName">Técnico</span></span>
+                <button class="logout-btn" onclick="logout()" aria-label="Cerrar sesión">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menú inferior móvil -->
+    <nav class="bottom-nav" id="bottomNav">
+        <div class="bottom-nav-links">
+            <a href="#" class="bottom-nav-link activo" onclick="mostrarSeccion('dashboard')">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="bottom-nav-link" onclick="mostrarSeccion('servicios')">
+                <i class="fas fa-tools"></i>
+                <span>Servicios</span>
+            </a>
+            <a href="#" class="bottom-nav-link" onclick="mostrarSeccion('calendario')">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Calendario</span>
+            </a>
+            <a href="#" class="bottom-nav-link" onclick="mostrarSeccion('mensajes')">
+                <i class="fas fa-envelope"></i>
+                <span>Mensajes</span>
+            </a>
+            <a href="#" class="bottom-nav-link" onclick="mostrarSeccion('finanzas')">
+                <i class="fas fa-chart-line"></i>
+                <span>Finanzas</span>
+            </a>
+            <a href="#" class="bottom-nav-link" onclick="mostrarSeccion('perfil')">
+                <i class="fas fa-user"></i>
+                <span>Perfil</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="panel-contenido">
+        <!-- Dashboard -->
+        <section id="dashboard" class="seccion activa">
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-tasks"></i>
+                        <h3>Servicios Activos</h3>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-valor">5</span>
+                        <span class="card-label">Servicios en curso</span>
+                    </div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-calendar-check"></i>
+                        <h3>Próximas Citas</h3>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-valor">3</span>
+                        <span class="card-label">Citas programadas</span>
+                    </div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-star"></i>
+                        <h3>Calificación</h3>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-valor">4.8</span>
+                        <span class="card-label">Promedio de calificaciones</span>
+                    </div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-dollar-sign"></i>
+                        <h3>Ingresos</h3>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-valor">$2,500</span>
+                        <span class="card-label">Ingresos del mes</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-secciones">
+                <div class="seccion-servicios">
+                    <h3>Servicios Recientes</h3>
+                    <div class="servicios-lista">
+                        <!-- Los servicios se cargarán dinámicamente -->
+                    </div>
+                </div>
+                <div class="seccion-calendario">
+                    <h3>Próximas Citas</h3>
+                    <div class="citas-lista">
+                        <!-- Las citas se cargarán dinámicamente -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Servicios -->
+        <section id="servicios" class="seccion">
+            <div class="servicios-header">
+                <h2>Gestión de Servicios</h2>
+                <div class="servicios-filtros">
+                    <select id="filtroEstado">
+                        <option value="todos">Todos los estados</option>
+                        <option value="pendiente">Pendientes</option>
+                        <option value="en_curso">En curso</option>
+                        <option value="completado">Completados</option>
+                    </select>
+                    <button class="btn-ordenar" onclick="ordenarServicios()">
+                        <i class="fas fa-sort"></i> Ordenar
+                    </button>
+                </div>
+            </div>
+            <div class="servicios-lista">
+                <!-- Los servicios se cargarán dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Calendario -->
+        <section id="calendario" class="seccion">
+            <div class="calendario-header">
+                <h2>Calendario de Servicios</h2>
+                <div class="calendario-controles">
+                    <button class="btn-mes" onclick="cambiarMes(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <span id="mesActual">Marzo 2024</span>
+                    <button class="btn-mes" onclick="cambiarMes(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="calendario-grid">
+                <!-- El calendario se generará dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Mensajes -->
+        <section id="mensajes" class="seccion">
+            <div class="mensajes-container">
+                <div class="conversaciones-lista">
+                    <div class="lista-header">
+                        <h2>Conversaciones</h2>
+                        <div class="buscar-chat">
+                            <input type="text" placeholder="Buscar conversación...">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                    <div class="conversaciones">
+                        <!-- Las conversaciones se cargarán dinámicamente -->
+                    </div>
+                </div>
+                <div class="chat-area">
+                    <div class="chat-header">
+                        <div class="conversacion-avatar">
+                            <img src="../img/avatar-default.png" alt="Cliente">
+                        </div>
+                        <div class="conversacion-info">
+                            <h3>Nombre del Cliente</h3>
+                            <span class="estado">En línea</span>
+                        </div>
+                    </div>
+                    <div class="mensajes-lista">
+                        <!-- Los mensajes se cargarán dinámicamente -->
+                    </div>
+                    <div class="mensaje-input">
+                        <form class="mensaje-form">
+                            <input type="text" placeholder="Escribe un mensaje...">
+                            <div class="mensaje-acciones">
+                                <button type="button">
+                                    <i class="fas fa-paperclip"></i>
+                                </button>
+                                <button type="submit">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Finanzas -->
+        <section id="finanzas" class="seccion">
+            <div class="finanzas-header">
+                <h2>Finanzas</h2>
+                <div class="finanzas-filtros">
+                    <select id="filtroPeriodo">
+                        <option value="semana">Esta semana</option>
+                        <option value="mes">Este mes</option>
+                        <option value="año">Este año</option>
+                    </select>
+                </div>
+            </div>
+            <div class="finanzas-grid">
+                <div class="finanzas-card">
+                    <h3>Ingresos Totales</h3>
+                    <span class="valor">$5,000</span>
+                </div>
+                <div class="finanzas-card">
+                    <h3>Servicios Completados</h3>
+                    <span class="valor">25</span>
+                </div>
+                <div class="finanzas-card">
+                    <h3>Promedio por Servicio</h3>
+                    <span class="valor">$200</span>
+                </div>
+            </div>
+            <div class="finanzas-detalle">
+                <h3>Historial de Pagos</h3>
+                <div class="pagos-lista">
+                    <!-- Los pagos se cargarán dinámicamente -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Perfil -->
+        <section id="perfil" class="seccion">
+            <div class="perfil-container">
+                <div class="perfil-header">
+                    <div class="perfil-imagen-container">
+                        <img src="../img/avatar-default.png" alt="Foto de perfil" class="perfil-imagen">
+                        <button class="cambiar-imagen" onclick="mostrarModalImagen()">
+                            <i class="fas fa-camera"></i>
+                        </button>
+                    </div>
+                    <div class="perfil-info">
+                        <h2 class="perfil-nombre">Nombre del Técnico</h2>
+                        <p class="perfil-email">
+                            <i class="fas fa-envelope"></i>
+                            tecnico@email.com
+                        </p>
+                    </div>
+                </div>
+                <div class="perfil-estadisticas">
+                    <div class="estadistica-item">
+                        <span class="estadistica-valor">4.8</span>
+                        <span class="estadistica-label">Calificación Promedio</span>
+                    </div>
+                    <div class="estadistica-item">
+                        <span class="estadistica-valor">50</span>
+                        <span class="estadistica-label">Servicios Completados</span>
+                    </div>
+                    <div class="estadistica-item">
+                        <span class="estadistica-valor">2</span>
+                        <span class="estadistica-label">Años de Experiencia</span>
+                    </div>
+                </div>
+                <form class="form-perfil" id="formPerfil">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="especialidad">Especialidad Principal</label>
+                        <input type="text" id="especialidad" name="especialidad" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="experiencia">Años de Experiencia</label>
+                        <input type="number" id="experiencia" name="experiencia" min="0" required>
+                    </div>
+                    <button type="submit" class="btn-guardar">
+                        <i class="fas fa-save"></i> Guardar Cambios
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Imagen -->
+    <div class="modal-imagen" id="modalImagen">
+        <div class="modal-imagen-contenido">
+            <div class="modal-header">
+                <h3>Cambiar Foto de Perfil</h3>
+                <button class="btn-cerrar" onclick="cerrarModalImagen()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="vista-previa">
+                <img id="vistaPreviaImagen" src="../img/avatar-default.png" alt="Vista previa">
+            </div>
+            <form onsubmit="guardarImagenPerfil(event)">
+                <input type="file" id="imagenPerfil" accept="image/*" onchange="previsualizarImagen(event)">
+                <div class="modal-acciones">
+                    <button type="submit" class="btn-guardar">
+                        <i class="fas fa-save"></i> Guardar
+                    </button>
+                    <button type="button" class="btn-cancelar" onclick="cerrarModalImagen()">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contenedor de Notificaciones -->
+    <div id="contenedorNotificaciones"></div>
+
+    <script src="logica.js"></script>
+</body>
+</html> 
